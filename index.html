@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulário</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+/* Fieldset */
+#formulario fieldset{
+ border-width:4px;
+ border-style:solid;
+ border-color:rgba(195,166,206,0.91);
+ border-top-left-radius:20px;
+ border-top-right-radius:20px;
+ border-bottom-left-radius:20px;
+ border-bottom-right-radius:20px;
+ transform:translatex(0px) translatey(0px);
+}
+
+/* Legenda */
+#formulario fieldset legend{
+ text-shadow:rgb(255, 255, 255) 1px 1px 0px, rgb(170, 170, 170) 2px 2px 0px;
+ font-family:'Arial Black','Arial Bold',Gadget,sans-serif;
+}
+
+/* Nome */
+#nome{
+ padding-right:0px;
+ width:98% !important;
+ height:16px;
+ transform:translatex(0px) translatey(0px);
+}
+
+/* Input */
+#cpf{
+ padding-right:0px;
+ width:98% !important;
+ transform:translatex(0px) translatey(0px);
+}
+
+/* Input */
+#cnh{
+ width:828px;
+ transform:translatex(0px) translatey(0px);
+ padding-right:0px;
+ position:relative;
+ left:2px;
+}
+
+/* Autoinfracao */
+#autoinfracao{
+ width:828px;
+ padding-right:0px;
+ position:relative;
+ left:6px;
+ top:0px;
+}
+
+/* Datamulta */
+#datamulta{
+ width:827px;
+ transform:translatex(0px) translatey(0px);
+ position:relative;
+ left:6px;
+ padding-right:0px;
+}
+
+/* Placa */
+#placa{
+ position:relative;
+ left:1px;
+ padding-right:0px;
+ padding-left:21px;
+ transform:translatex(0px) translatey(0px);
+ width:97% !important;
+}
+
+/* Email */
+#email{
+ width:97% !important;
+}
+
+/* Telefone */
+#telefone{
+ width:97% !important;
+}
+
+/* Botao */
+#formulario button{
+ position:relative;
+ top:13px;
+ left:3px;
+}
+
+/* Fieldset */
+#formulario fieldset{
+ position:static;
+ transform:translatex(0px) translatey(0px);
+ box-shadow:-9px 4px 15px -8px rgba(44,62,80,0.66);
+}
+
+    /* Formulario */
+    #formulario {
+      margin-right: 16px;
+      width: 884px;
+      padding-left: 29px;
+      padding-right: 49px;
+    }
+
+    /* Heading */
+    center h1 {
+      direction: ltr;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    label, input {
+      display: block;
+      margin: 10px 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Estilo para campos formatados */
+    .formatted-input {
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <center><h1>.: Formulário MS Multas :.</h1></center>
+  <br>
+
+  <form id="formulario">
+    <fieldset>
+      <legend>Dados Pessoais</legend>
+      <label for="nome">Nome Completo:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" name="cpf"  oninput="formatarCPF(this)" class="formatted-input">
+
+      <label for="cnh">CNH:</label>
+      <input type="text" id="cnh" name="cnh" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Informações sobre a Infração</legend>
+      <label for="autoinfracao">Código do Auto de Infração:</label>
+      <input type="text" id="autoinfracao" name="autoinfracao" required>
+
+      <label for="datamulta">Data do Ocorrido:</label>
+      <input type="text" id="datamulta" name="datamulta" required>
+
+      <label for="placa">Placa do Veículo:</label>
+      <input type="text" id="placa" name="placa" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contato</legend>
+      <label for="email">E-mail:</label>
+      <input type="text" id="email" name="email" required>
+
+      <label for="telefone">Telefone:</label>
+      <input type="text" id="telefone" name="telefone" required>
+    </fieldset>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    function formatarCPF(campo) {
+      // Remove todos os caracteres não numéricos
+      var cpf = campo.value.replace(/\D/g, '');
+      
+      // Adiciona os pontos e o hífen de acordo com o padrão do CPF
+      if (cpf.length >= 3) {
+        cpf = cpf.substring(0, 3) + '.' + cpf.substring(3);
+      }
+      if (cpf.length >= 7) {
+        cpf = cpf.substring(0, 7) + '.' + cpf.substring(7);
+      }
+      if (cpf.length >= 11) {
+        cpf = cpf.substring(0, 11) + '-' + cpf.substring(11);
+      }
+      
+      // Define o valor do campo com o CPF formatado
+      campo.value = cpf;
+    }
+  </script>
+
+  <script>
+    const formulario = document.getElementById('formulario');
+
+    formulario.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const nome = document.getElementById('nome').value;
+      const autoinfracao = document.getElementById('autoinfracao').value;
+      const cpf = document.getElementById('cpf').value;
+      const cnh = document.getElementById('cnh').value;
+      const email = document.getElementById('email').value;
+      const telefone = document.getElementById('telefone').value;
+      const datamulta = document.getElementById('datamulta').value;
+      const placa = document.getElementById('placa').value;
+
+      const respostas = {
+        nome: nome,
+        autoinfracao: autoinfracao,
+        cpf: cpf,
+        cnh: cnh,
+        email: email,
+        telefone: telefone,
+        datamulta: datamulta,
+        placa: placa
+      };
+
+      fetch('/gerar-pdf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(respostas)
+      })
+      .then(response => response.blob())
+      .then(blob => {
+        const url = URL.createObjectURL(blob);
+
+        const linkDownloadPDF = document.createElement('a');
+        linkDownloadPDF.href = url;
+        linkDownloadPDF.download = 'Petição Modelo Art230 IX CTB.pdf';
+        linkDownloadPDF.style.display = 'none';
+        document.body.appendChild(linkDownloadPDF);
+        linkDownloadPDF.click();
+        document.body.removeChild(linkDownloadPDF);
+
+        // Redireciona para a pagina da BugEnd Tecnologia após o download da petição
+        window.location.href = 'https://bugendtecnologia.com.br';
+      });
+
+      formulario.reset();
+    });
+  </script>
+</body>
+</html>
