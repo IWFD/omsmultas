@@ -219,7 +219,7 @@ doc.moveDown();
 */
 //-------------------------------------------------------------------------------------------
   const pdfFilename = 'Petição Modelo Art.230 IX CTB.pdf';
-  const pdfPath = path.join(__dirname, 'backup', pdfFilename);
+  const pdfPath = path.join(__dirname, 'backup', 'Petição Modelo Art.230 IX CTB.pdf');
   const pdfStream = fs.createWriteStream(pdfPath);
   doc.pipe(pdfStream);
   doc.end();
